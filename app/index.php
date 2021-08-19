@@ -18,10 +18,10 @@
   
   // select the quotes that have not been displayed (q_mark = 0). 
   $sql = "SELECT * from quote WHERE q_mark = 0"; 
-  $result = mysqli_query($sql); 
+  $result = mysqli_query($db, $sql); 
   // simple error checking 
   if (mysqli_errno()>0) { 
-    echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno().": ".mysqli_error()."<BR>\n"; 
+    echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno($db).": ".mysqli_error($db)."<BR>\n"; 
     exit; 
   } 
   // put the number of rows found into $max. 
@@ -29,15 +29,15 @@
   
   // if we do not find an available quote, then mark them (q_mark) to 0 and select again. 
   if ($max < 0) { 
-    $result = mysqli_query("UPDATE quote SET q_mark = 0"); 
-      if (mysqli_errno()>0) { 
-        echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno().": ".mysqli_error()."<BR>\n"; 
+    $result = mysqli_query($db, "UPDATE quote SET q_mark = 0"); 
+      if (mysqli_errno($db)>0) { 
+        echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno($db).": ".mysqli_error($db)."<BR>\n"; 
         exit; 
       } 
     $sql = "SELECT * from quote WHERE q_mark = 0"; 
-    $result = mysqli_query($sql); 
-    if (mysqli_errno()>0) { 
-      echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno().": ".mysqli_error()."<BR>\n"; 
+    $result = mysqli_query($db, $sql); 
+    if (mysqli_errno($db)>0) { 
+      echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno($db).": ".mysqli_error($db)."<BR>\n"; 
       exit; 
     } 
     $max = mysqli_num_rows($result)-1; 
@@ -56,9 +56,9 @@
   $id = $myrow[0]; 
   $quote = $myrow[1]; 
   // mark this selected quote as displayed (q_mark = 1). 
-  $result = mysqli_query("UPDATE quote SET q_mark = 1 WHERE q_id = '$id'"); 
-  if (mysqli_errno()>0) { 
-    echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno().": ".mysqli_error()."<BR>\n"; 
+  $result = mysqli_query($db, "UPDATE quote SET q_mark = 1 WHERE q_id = '$id'"); 
+  if (mysqli_errno($db)>0) { 
+    echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno($db).": ".mysqli_error($db)."<BR>\n"; 
     exit; 
   } 
   // convert to HTML special characters, you know, like ?, ?, ?, and so on. 
