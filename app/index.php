@@ -3,9 +3,9 @@
 
   // DB connection info
   $DB_USER = "simple-quote";
-  $DB_PASS = "RED!hat@"
-  $DB_HOST = "localhost"
-  $DB_NAME = "quotes"
+  $DB_PASS = "RED!hat@";
+  $DB_HOST = "localhost";
+  $DB_NAME = "quotes";
      
   // initialize variable that will hold the quote. 
   $quote = ""; 
