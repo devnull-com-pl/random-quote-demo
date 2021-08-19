@@ -56,7 +56,7 @@
   $id = $myrow[0]; 
   $quote = $myrow[1]; 
   // mark this selected quote as displayed (q_mark = 1). 
-  $result = mysqli_query($db, "UPDATE quote SET q_mark = 1 WHERE q_id = '$id'"); 
+  $result = mysqli_query($db, "UPDATE quote SET q_mark = 1 WHERE quote_id = '$id'"); 
   if (mysqli_errno($db)>0) { 
     echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno($db).": ".mysqli_error($db)."<BR>\n"; 
     exit; 
