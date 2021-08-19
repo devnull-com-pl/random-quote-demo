@@ -2,16 +2,16 @@
   // Code based on https://php.happycodings.com/html-and-php/code19.html
 
   // DB connection info
-  $DB_USER = "simple-quote";
-  $DB_PASS = "RED!hat@";
-  $DB_HOST = "localhost";
-  $DB_NAME = "quotes";
+  $DBUSER = "simple-quote";
+  $DBPASS = "RED!hat@";
+  $DBHOST = "localhost";
+  $DBNAME = "quotes";
      
   // initialize variable that will hold the quote. 
   $quote = ""; 
   // establish connection to the database containing the quotes. 
-  $db = mysql_connect($DB_HOST, $DB_USER, $DB_PASS) or die ("Unable to connect to database."); 
-  mysql_select_db($DB_NAME) or die ("Unable to select database."); 
+  $db = mysql_connect($DBHOST, $DBUSER, $DBPASS) or die ("Unable to connect to database."); 
+  mysql_select_db($DBNAME) or die ("Unable to select database."); 
   
   // select the quotes that have not been displayed (q_mark = 0). 
   $sql = "SELECT * from quote WHERE q_mark = 0"; 
