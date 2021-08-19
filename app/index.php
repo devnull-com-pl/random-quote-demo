@@ -14,7 +14,7 @@
   if ($db->connect_error) {
     die("Connection failed. Please make sure you have the MYSQL_SERVICE_HOST, MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DATABASE environment variables : " . $db->connect_error);
   }
-  mysqli_select_db($DBNAME) or die ("Unable to select database."); 
+  mysqli_select_db($db, $DBNAME) or die ("Unable to select database."); 
   
   // select the quotes that have not been displayed (q_mark = 0). 
   $sql = "SELECT * from quote WHERE q_mark = 0"; 
