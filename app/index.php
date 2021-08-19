@@ -20,7 +20,7 @@
   $sql = "SELECT * from quote WHERE q_mark = 0"; 
   $result = mysqli_query($db, $sql); 
   // simple error checking 
-  if (mysqli_errno()>0) { 
+  if (mysqli_errno($db)>0) { 
     echo "<BR>\n<FONT COLOR=\"#990000\">".mysqli_errno($db).": ".mysqli_error($db)."<BR>\n"; 
     exit; 
   } 
