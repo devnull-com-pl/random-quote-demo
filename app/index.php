@@ -10,7 +10,7 @@
   // initialize variable that will hold the quote. 
   $quote = ""; 
   // establish connection to the database containing the quotes. 
-  $db = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME) //or die ("Unable to connect to database."); 
+  $db = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME); //or die ("Unable to connect to database."); 
   if ($db->connect_error) {
     die("Connection failed. Please make sure you have the MYSQL_SERVICE_HOST, MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DATABASE environment variables : " . $db->connect_error);
   }
