@@ -64,7 +64,7 @@
   // convert to HTML special characters, you know, like ?, ?, ?, and so on. 
   $quote = nl2br(htmlentities($quote)); 
   // finally replace the "<" and ">" for < and > so you that can use tags. 
-  $quote = ereg_replace ("<", "<", $quote); 
-  $quote = ereg_replace (">", ">", $quote); 
+  $quote = preg_replace ("<", "<", $quote); 
+  $quote = preg_replace (">", ">", $quote); 
   echo $quote."<BR>\n"; 
 ?>
